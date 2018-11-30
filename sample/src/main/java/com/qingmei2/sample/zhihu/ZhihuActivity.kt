@@ -3,17 +3,15 @@ package com.qingmei2.sample.zhihu
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.core.app.ActivityCompat
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
 import com.qingmei2.rximagepicker.core.RxImagePicker
 import com.qingmei2.rximagepicker.entity.Result
 import com.qingmei2.rximagepicker_extension.MimeType
 import com.qingmei2.rximagepicker_extension_zhihu.ZhihuConfigurationBuilder
-import com.qingmei2.rximagepicker_extension_zhihu.ui.ZhihuImagePickerActivity
 import com.qingmei2.sample.R
-import com.qingmei2.sample.R.id.*
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_zhihu.*
@@ -77,9 +75,8 @@ class ZhihuActivity : AppCompatActivity() {
     private fun openGalleryAsNormal() {
         rxImagePicker.openGalleryAsNormal(this,
                 ZhihuConfigurationBuilder(MimeType.ofImage(), false)
-                        .maxSelectable(9)
-                        .countable(true)
-                        .spanCount(4)
+                        .maxSelectable(10)
+                        .spanCount(3)
                         .theme(R.style.Zhihu_Normal)
                         .build())
                 .subscribe(fetchUriObserver())
@@ -92,7 +89,7 @@ class ZhihuActivity : AppCompatActivity() {
         rxImagePicker.openGalleryAsDracula(this,
                 ZhihuConfigurationBuilder(MimeType.ofImage(), false)
                         .spanCount(3)
-                        .maxSelectable(1)
+                        .maxSelectable(10)
                         .theme(R.style.Zhihu_Dracula)
                         .build())
                 .subscribe(fetchUriObserver())

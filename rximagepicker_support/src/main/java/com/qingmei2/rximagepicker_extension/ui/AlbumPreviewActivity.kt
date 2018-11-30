@@ -15,16 +15,14 @@
  */
 package com.qingmei2.rximagepicker_extension.ui
 
+
 import android.database.Cursor
 import android.os.Bundle
-
-
 import com.qingmei2.rximagepicker_extension.entity.Album
 import com.qingmei2.rximagepicker_extension.entity.Item
 import com.qingmei2.rximagepicker_extension.model.AlbumMediaCollection
 import com.qingmei2.rximagepicker_extension.ui.adapter.PreviewPagerAdapter
-
-import java.util.ArrayList
+import java.util.*
 
 open class AlbumPreviewActivity : BasePreviewActivity(), AlbumMediaCollection.AlbumMediaCallbacks {
 
@@ -40,11 +38,11 @@ open class AlbumPreviewActivity : BasePreviewActivity(), AlbumMediaCollection.Al
         mCollection.load(album)
 
         val item = intent.getParcelableExtra<Item>(EXTRA_ITEM)
-        if (mSpec.countable) {
-            mCheckView.setCheckedNum(mSelectedCollection.checkedNumOf(item))
-        } else {
+//        if (mSpec.countable) {
+//            mCheckView.setCheckedNum(mSelectedCollection.checkedNumOf(item))
+//        } else {
             mCheckView.setChecked(mSelectedCollection.isSelected(item))
-        }
+//        }
         updateSize(item)
     }
 

@@ -19,20 +19,18 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.annotation.LayoutRes
-import androidx.viewpager.widget.ViewPager
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
+import android.widget.CheckBox
 import android.widget.TextView
-
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import com.qingmei2.rximagepicker_extension.R
 import com.qingmei2.rximagepicker_extension.entity.IncapableCause
 import com.qingmei2.rximagepicker_extension.entity.Item
 import com.qingmei2.rximagepicker_extension.entity.SelectionSpec
 import com.qingmei2.rximagepicker_extension.model.SelectedItemCollection
 import com.qingmei2.rximagepicker_extension.ui.adapter.PreviewPagerAdapter
-import com.qingmei2.rximagepicker_extension.ui.widget.CheckView
 import com.qingmei2.rximagepicker_extension.utils.PhotoMetadataUtils
 import com.qingmei2.rximagepicker_extension.utils.Platform
 
@@ -44,7 +42,7 @@ abstract class BasePreviewActivity : AppCompatActivity(), androidx.viewpager.wid
 
     protected lateinit var mAdapter: PreviewPagerAdapter
 
-    protected lateinit var mCheckView: CheckView
+    protected lateinit var mCheckView: CheckBox
     protected lateinit var mButtonBack: TextView
     protected lateinit var mButtonApply: TextView
     protected lateinit var mSize: TextView
@@ -91,25 +89,25 @@ abstract class BasePreviewActivity : AppCompatActivity(), androidx.viewpager.wid
         mAdapter = PreviewPagerAdapter(supportFragmentManager, null)
         mPager.adapter = mAdapter
         mCheckView = findViewById(R.id.check_view)
-        mCheckView.setCountable(mSpec.countable)
+//        mCheckView.setCountable(mSpec.countable)
 
         mCheckView.setOnClickListener {
             val item = mAdapter.getMediaItem(mPager.currentItem)
             if (mSelectedCollection.isSelected(item)) {
                 mSelectedCollection.remove(item)
-                if (mSpec.countable) {
-                    mCheckView.setCheckedNum(CheckView.UNCHECKED)
-                } else {
+//                if (mSpec.countable) {
+//                    mCheckView.setCheckedNum(CheckView.UNCHECKED)
+//                } else {
                     mCheckView.setChecked(false)
-                }
+//                }
             } else {
                 if (assertAddSelection(item)) {
                     mSelectedCollection.add(item)
-                    if (mSpec.countable) {
-                        mCheckView.setCheckedNum(mSelectedCollection.checkedNumOf(item))
-                    } else {
+//                    if (mSpec.countable) {
+//                        mCheckView.setCheckedNum(mSelectedCollection.checkedNumOf(item))
+//                    } else {
                         mCheckView.setChecked(true)
-                    }
+//                    }
                 }
             }
             updateApplyButton()
@@ -139,7 +137,7 @@ abstract class BasePreviewActivity : AppCompatActivity(), androidx.viewpager.wid
             val item = adapter.getMediaItem(position)
             if (mSpec.countable) {
                 val checkedNum = mSelectedCollection.checkedNumOf(item)
-                mCheckView.setCheckedNum(checkedNum)
+//                mCheckView.setCheckedNum(checkedNum)
                 if (checkedNum > 0) {
                     mCheckView.isEnabled = true
                 } else {
