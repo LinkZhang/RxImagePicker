@@ -11,7 +11,6 @@ import com.qingmei2.rximagepicker.core.RxImagePicker
 import com.qingmei2.rximagepicker.entity.Result
 import com.qingmei2.rximagepicker_extension.MimeType
 import com.qingmei2.rximagepicker_extension_zhihu.ZhihuConfigurationBuilder
-import com.qingmei2.rximagepicker_extension_zhihu.ui.ZhihuImagePickerActivity
 import com.qingmei2.sample.R
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
@@ -77,7 +76,7 @@ class ZhihuActivity : AppCompatActivity() {
         rxImagePicker.openGalleryAsNormal(this,
                 ZhihuConfigurationBuilder(MimeType.ofImage(), false)
                         .maxSelectable(9)
-                        .countable(true)
+                        .countable(false)
                         .spanCount(4)
                         .theme(R.style.Zhihu_Normal)
                         .build())

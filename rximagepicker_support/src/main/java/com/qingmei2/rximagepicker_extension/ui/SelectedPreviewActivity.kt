@@ -29,11 +29,11 @@ open class SelectedPreviewActivity : BasePreviewActivity() {
         val selected = bundle.getParcelableArrayList<Item>(SelectedItemCollection.STATE_SELECTION)
         mAdapter.addAll(selected)
         mAdapter.notifyDataSetChanged()
-        if (mSpec.countable) {
-            mCheckView.setCheckedNum(1)
-        } else {
+//        if (mSpec.countable) {
+//            mCheckView.setCheckedNum(1)
+//        } else {
             mCheckView.setChecked(true)
-        }
+//        }
         mPreviousPos = 0
         updateSize(selected!![0])
     }

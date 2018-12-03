@@ -30,8 +30,8 @@ android {
 dependencies {
     compileOnly rootProject.ext.dependencies["appcompat-v7"]
 
-    api rootProject.ext.dependencies["rxkotlin"]
-    api rootProject.ext.dependencies["rxandroid"]
+    compileOnly rootProject.ext.dependencies["rxkotlin"]
+    compileOnly rootProject.ext.dependencies["rxandroid"]
     implementation rootProject.ext.dependencies["kotlin-android"]
     implementation rootProject.ext.dependencies["kotlin-reflect"]
     testImplementation rootProject.ext.dependencies["junit"]

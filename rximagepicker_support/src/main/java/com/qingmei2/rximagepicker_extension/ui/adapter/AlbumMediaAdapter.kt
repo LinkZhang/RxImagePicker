@@ -26,6 +26,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -148,19 +149,20 @@ open class AlbumMediaAdapter(context: Context,
         mOnMediaClickListener?.onMediaClick(null, item, holder.adapterPosition)
     }
 
-    override fun onCheckViewClicked(checkView: CheckView, item: Item, holder: RecyclerView.ViewHolder) {
-        if (mSelectionSpec.countable) {
-            val checkedNum = mSelectedCollection.checkedNumOf(item)
-            if (checkedNum == CheckView.UNCHECKED) {
-                if (assertAddSelection(holder.itemView.context, item)) {
-                    mSelectedCollection.add(item)
-                    notifyCheckStateChanged()
-                }
-            } else {
-                mSelectedCollection.remove(item)
-                notifyCheckStateChanged()
-            }
-        } else {
+    override fun onCheckViewClicked(checkView: CheckBox, item: Item, holder: RecyclerView
+    .ViewHolder) {
+//        if (mSelectionSpec.countable) {
+//            val checkedNum = mSelectedCollection.checkedNumOf(item)
+//            if (checkedNum == CheckView.UNCHECKED) {
+//                if (assertAddSelection(holder.itemView.context, item)) {
+//                    mSelectedCollection.add(item)
+//                    notifyCheckStateChanged()
+//                }
+//            } else {
+//                mSelectedCollection.remove(item)
+//                notifyCheckStateChanged()
+//            }
+//        } else {
             if (mSelectedCollection.isSelected(item)) {
                 mSelectedCollection.remove(item)
                 notifyCheckStateChanged()
@@ -170,7 +172,7 @@ open class AlbumMediaAdapter(context: Context,
                     notifyCheckStateChanged()
                 }
             }
-        }
+//        }
     }
 
     private fun notifyCheckStateChanged() {

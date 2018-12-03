@@ -22,6 +22,7 @@ import android.text.format.DateUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -32,7 +33,7 @@ import com.qingmei2.rximagepicker_extension.entity.SelectionSpec
 open class MediaGrid : SquareFrameLayout, View.OnClickListener {
 
     protected lateinit var mThumbnail: ImageView
-    protected lateinit var mCheckView: CheckView
+    protected lateinit var mCheckView: CheckBox
     protected lateinit var mGifTag: ImageView
     protected lateinit var mVideoDuration: TextView
 
@@ -91,7 +92,7 @@ open class MediaGrid : SquareFrameLayout, View.OnClickListener {
     }
 
     private fun initCheckView() {
-        mCheckView.setCountable(mPreBindInfo.mCheckViewCountable)
+//        mCheckView.setCountable(mPreBindInfo.mCheckViewCountable)
     }
 
     fun setCheckEnabled(enabled: Boolean) {
@@ -99,7 +100,7 @@ open class MediaGrid : SquareFrameLayout, View.OnClickListener {
     }
 
     fun setCheckedNum(checkedNum: Int) {
-        mCheckView.setCheckedNum(checkedNum)
+//        mCheckView.setCheckedNum(checkedNum)
     }
 
     fun setChecked(checked: Boolean) {
@@ -137,7 +138,7 @@ open class MediaGrid : SquareFrameLayout, View.OnClickListener {
 
         fun onThumbnailClicked(thumbnail: ImageView, item: Item, holder: RecyclerView.ViewHolder)
 
-        fun onCheckViewClicked(checkView: CheckView, item: Item, holder: RecyclerView.ViewHolder)
+        fun onCheckViewClicked(checkView: CheckBox, item: Item, holder: RecyclerView.ViewHolder)
     }
 
     class PreBindInfo(internal var mResize: Int, internal var mPlaceholder: Drawable, internal var mCheckViewCountable: Boolean,
