@@ -16,11 +16,9 @@
 package com.qingmei2.rximagepicker_extension.ui.adapter
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.database.Cursor
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
-import android.support.annotation.LayoutRes
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -29,7 +27,6 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
-
 import com.qingmei2.rximagepicker_extension.R
 import com.qingmei2.rximagepicker_extension.entity.Album
 import com.qingmei2.rximagepicker_extension.entity.IncapableCause
@@ -170,6 +167,8 @@ open class AlbumMediaAdapter(context: Context,
                 if (assertAddSelection(holder.itemView.context, item)) {
                     mSelectedCollection.add(item)
                     notifyCheckStateChanged()
+                }else{
+                    checkView.toggle()
                 }
             }
 //        }

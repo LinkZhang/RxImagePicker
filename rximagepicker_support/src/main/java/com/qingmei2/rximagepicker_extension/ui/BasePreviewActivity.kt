@@ -109,6 +109,8 @@ abstract class BasePreviewActivity : AppCompatActivity(), ViewPager.OnPageChange
 //                    } else {
                         mCheckView.setChecked(true)
 //                    }
+                }else{
+                    mCheckView.toggle()
                 }
             }
             updateApplyButton()
