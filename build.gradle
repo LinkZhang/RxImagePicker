@@ -35,6 +35,10 @@ task clean(type: Delete) {
 }
 
 tasks.getByPath(":rximagepicker:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":rximagepicker:debugAndroidJavadocs").enabled = false
 tasks.getByPath(":rximagepicker_support:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":rximagepicker_support:debugAndroidJavadocs").enabled = false
 tasks.getByPath(":rximagepicker_support_wechat:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":rximagepicker_support_wechat:debugAndroidJavadocs").enabled = false
 tasks.getByPath(":rximagepicker_support_zhihu:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":rximagepicker_support_zhihu:debugAndroidJavadocs").enabled = false
